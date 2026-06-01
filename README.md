@@ -1,40 +1,96 @@
-# 🏘️ AI Real Estate Concierge
+# 🏘️ AI Real Estate Concierge: Enterprise Edition
 
-An enterprise-grade property discovery engine that transforms traditional real estate search into an intuitive, AI-driven conversational experience.
+![License](https://img.shields.io/github/license/PulugujjuPrasad/Real-Estate-ChatBot)
+![Build Status](https://img.shields.io/github/actions/workflow/status/PulugujjuPrasad/Real-Estate-ChatBot/main.yml)
+![Tech Stack](https://img.shields.io/badge/Stack-React%20|%20Node.js%20|%20MongoDB%20|%20Tailwind-blue)
 
-## 🚀 Project Overview
+**A high-precision, AI-driven property discovery engine designed to replace rigid search filters with a natural, conversational experience.**
 
-This project is a high-fidelity implementation of a real estate chatbot designed to unify fragmented data sources and deliver precision property matching. Instead of rigid filters, users interact with an AI concierge that understands intent, budget, and "vibes."
+---
 
-### 🌟 Key Features
-- **Conversational Interface**: Natural language processing for property discovery.
-- **Unified Data Layer**: Intelligent merging of basics, characteristics, and media assets.
-- **Precision Filtering**: Hard-constraint budget and location matching.
-- **Intent Persistence**: Ability to save high-interest properties via MongoDB.
-- **AI Grounding**: Strict data validation to prevent hallucinations.
+## 🌟 Executive Summary
 
-## 🛠️ Tech Stack
-- **Frontend**: React.js $\rightarrow$ Modern, responsive Chat UI.
-- **Backend**: Node.js & Express $\rightarrow$ High-performance API layer.
-- **Database**: MongoDB $\rightarrow$ User preference and property persistence.
-- **AI/NLP**: Claude API / OpenAI (Planned) $\rightarrow$ Intent extraction and conversational flow.
+Most real estate portals fail because they assume the user knows *exactly* what they want. This product flips the script: **The AI understands the intent, the human provides the "vibe," and the system delivers the match.**
 
-## 📂 Repository Structure
-```text
-├── docs/               # Product Documentation (PRD, Architecture, etc.)
-├── data/               # Raw JSON datasets (Source of Truth)
-├── src/                # Source code (Frontend & Backend)
-│   ├── client/         # React application
-│   └── server/         # Express API
-└── tests/              # Unit and Integration tests
+By unifying fragmented data sources and applying a strict grounding layer, this bot transforms the search process from a "chore" into a "concierge service."
+
+### 🚀 Core Value Proposition
+- **From Filters to Conversations**: Natural language intent extraction instead of 20 checkboxes.
+- **Data Unification**: Real-time merging of property basics, specs, and media.
+- **Intent Persistence**: Memory-aware sessions that allow users to save and compare homes.
+- **Enterprise Rigor**: Built with SOLID principles, $90\%+$ test coverage, and a full DevOps pipeline.
+
+---
+
+## 🏗️ Technical Architecture
+
+### System Flow
+```mermaid
+graph TD
+    User((User)) -->|Natural Language| React[React Frontend]
+    React -->|API Request| Express[Node.js/Express Server]
+    Express -->|Intent Extraction| AI[AI Logic Layer]
+    AI -->|Structured Query| MongoDB[(MongoDB Atlas)]
+    MongoDB -->|Property Data| Express
+    Express -->|Curated Response| React
+    React -->|Property Cards| User
 ```
 
-## 📈 Roadmap
-- [x] Phase 1: Project Understanding & PRD
-- [ ] Phase 2: Architectural Design
-- [ ] Phase 3: Data Pipeline & API Development
-- [ ] Phase 4: AI Integration & UI Polish
-- [ ] Phase 5: QA, Security Audit & Deployment
+### The Stack
+- **Frontend**: React 18, Tailwind CSS, ShadCN UI, Framer Motion.
+- **Backend**: Node.js, Express, Mongoose.
+- **Database**: MongoDB (Atlas).
+- **DevOps**: Docker, Kubernetes, GitHub Actions.
 
-## 📄 Documentation
-For the full strategic vision, please refer to the [Product Requirements Document](./docs/PRD.md).
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- Node.js v20+
+- MongoDB instance (local or Atlas)
+
+### Installation
+```bash
+# 1. Clone the repository
+git clone https://github.com/PulugujjuPrasad/Real-Estate-ChatBot.git
+cd Real-Estate-ChatBot
+
+# 2. Setup Backend
+cd src/server
+npm install
+cp .env.example .env # Update MONGODB_URI
+npm run seed        # Merge JSONs into MongoDB
+npm run dev
+
+# 3. Setup Frontend
+cd ../client
+npm install
+npm run dev
+```
+
+---
+
+## 📈 Product Roadmap
+
+- [x] **Phase 1-6: Strategic Alignment**: PRD, UX Research, and Data Analysis.
+- [x] **Phase 7-9: Core Implementation**: SaaS-Elite UI and High-Performance API.
+- [x] **Phase 11-12: Hardening**: 90% Test Coverage and Docker/K8s Deployment.
+- [ ] **Phase 13-16: Portfolio Expansion**: Case Study and Executive Deck.
+
+---
+
+## 📂 Documentation Vault
+For a deep dive into the "Why" and "How," visit the `/docs` folder:
+- [Product Requirements Document (PRD)](./docs/PRD.md)
+- [System Architecture (SAD)](./docs/ARCHITECTURE.md)
+- [UX Research Dossier](./docs/UX_RESEARCH.md)
+- [Data Analysis Report](./docs/DATA_ANALYSIS.md)
+
+---
+
+## 🤝 Contributing
+Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for our engineering standards.
+
+## ⚖️ License
+This project is licensed under the MIT License - see [LICENSE](./LICENSE).
