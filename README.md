@@ -86,6 +86,7 @@ For a deep dive into the "Why" and "How," visit the `/docs` folder:
 - [System Architecture (SAD)](./docs/ARCHITECTURE.md)
 - [UX Research Dossier](./docs/UX_RESEARCH.md)
 - [Data Analysis Report](./docs/DATA_ANALYSIS.md)
+- [Deployment Guides](./docs/deployment/DEPLOYMENT_OVERVIEW.md)
 
 ---
 

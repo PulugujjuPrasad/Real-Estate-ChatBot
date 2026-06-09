@@ -1,13 +1,18 @@
 # Build Stage
-FROM node:20-slim as build
+FROM node:20-alpine as build
 WORKDIR /app
 
-# Copy package files first for better caching
+# Copy package files
 COPY src/client/package*.json ./
+
+# Install ALL dependencies (including devDeps for build)
 RUN npm install
 
-# Copy the rest of the client source
+# Copy the entire client source folder
 COPY src/client .
+
+# Debug: List files to ensure they are in the right place
+RUN ls -la
 
 # Build the React app
 RUN npm run build

@@ -1,0 +1,34 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Backend Tests
+        run: |
+          cd src/server
+          npm install
+          npm test
+
+      - name: Build Docker Images
+        run: |
+          docker build -t realestate-server -f Dockerfile.server .
+          docker build -t realestate-client -f Dockerfile.client .
+
+      - name: Deploy to Production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying to Vercel/AWS..."
+          # Actual deployment commands here
